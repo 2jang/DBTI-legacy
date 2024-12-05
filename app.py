@@ -159,34 +159,38 @@ def mbti_api():
     dog_name = dog_data['Dog'].split(', ')[-1] if ', ' in dog_data['Dog'] else dog_data['Dog']
     wiki_url = f"https://namu.wiki/w/{dog_name}"
 
-    responseBody = {
+    return jsonify({
         "version": "2.0",
         "template": {
             "outputs": [
                 {
+                    "simpleText": {
+                        "text": f"이용자님은 MBTI가 {mbti}로 {mbti_data['Type Name']}입니다.\n{mbti_data['Description']}"
+                    }
+                },
+                {
                     "basicCard": {
-                        "title": "음성인식으로 DBTI와 MBTI를 검색하기",
-                        "description": "음성 인식은 1개국어만 지원합니다.\n(한국어, 영어)\n자동으로 리다이렉트 됩니다",
+                        "title": dog_data['Dog'],
+                        "description": dog_data['Personality'],
                         "thumbnail": {
-                            "imageUrl": "https://i.ibb.co/SmT95WX/cat-meme.jpg"
+                            "imageUrl": dog_data['Img URL']
                         },
                         "buttons": [
                             {
                                 "action": "webLink",
                                 "label": "더 자세히 알아보기",
-                                "webLinkUrl": ""
+                                "webLinkUrl": wiki_url
+                            },
+                            {
+                                "action": "share",
+                                "label": "결과 공유하기"
                             }
                         ]
                     }
                 }
             ]
         }
-    }
-    return responseBody
-
-@app.route('/sttmenu')
-def stt():
-    return render_template('index2.html')
+    })
 
 @app.route('/stt')
 def stt():
