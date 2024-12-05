@@ -1,4 +1,5 @@
 import csv
+import subprocess
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import os
@@ -23,6 +24,7 @@ def read_dbti_info():
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
             dbti_info[row['DBTI']] = row
+    print(f"총 {len(dbti_info)} 개의 DBTI 정보를 읽었습니다.")
 
 
 # CSV 파일에서 MBTI 정보를 읽어오는 함수
@@ -31,6 +33,7 @@ def read_mbti_info():
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
             mbti_info[row['MBTI']] = row
+    print(f"총 {len(mbti_info)} 개의 MBTI 정보를 읽었습니다.")
 
 
 # CSV 파일에서 Dog 매칭 정보를 읽어오는 함수
@@ -39,6 +42,7 @@ def read_dog_match():
         csv_reader = csv.DictReader(file)
         for row in csv_reader:
             dog_match[row['MBTI']] = row
+    print(f"총 {len(dog_match)} 개의 강아지 추천 리스트 정보를 읽었습니다.")
 
 
 # 데이터 로드
@@ -55,6 +59,7 @@ def home():
 @app.route('/submit_dbti', methods=['POST'])
 def submit_dbti():
     global latest_dbti_result
+    print("Received request:", request.json)
     latest_dbti_result = request.json.get('dbti')
     return jsonify({"message": "DBTI 저장 완료"}), 200
 
@@ -196,15 +201,18 @@ def mbti_api():
 def stt():
     return render_template('index2.html')
 
-
 @app.route('/api/speech', methods=['POST'])
 def speech_call():
+    print("음성 인식 요청 받음")  # 디버깅: 요청 받은 시점 출력
     try:
         text = recognize_speech()  # 음성 인식 실행
+        print(f"음성 인식 결과: {text}")  # 디버깅: 인식된 텍스트 출력
 
         type_name, result = search_type(text)
+        print(f"검색 결과: {type_name}, {result}")  # 디버깅: 검색 결과 출력
 
         if result is None:
+            print("음성 인식 실패 또는 해당 데이터 없음")  # 디버깅: 인식 실패 메시지 출력
             return jsonify({"message": "음성 인식 실패 또는 해당 데이터 없음"}), 400
 
         return jsonify({
@@ -212,6 +220,7 @@ def speech_call():
             "result": result
         })
     except Exception as e:
+        print(f"예외 발생: {e}")  # 디버깅: 예외 발생 메시지 출력
         return jsonify({"message": f"서버 오류: {str(e)}"}), 500
 
 
