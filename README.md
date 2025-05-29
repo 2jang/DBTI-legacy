@@ -9,7 +9,11 @@ DBTI 프로젝트는 사용자의 MBTI 성향에 맞는 반려견을 추천하�
 
 [//]: # (음성 인식을 통한 정보 검색 기능도 포함하고 있습니다. 챗봇과의 상호작용은 주로 한국어로 진행됩니다.)
 
-<img src="static/images/readme/dbti_main.png">
+<p align="center">
+  <br>
+  <img src="static/images/readme/dbti_main.png">
+  <br>
+</p>
 
 ## ✨ 주요 기능
 
