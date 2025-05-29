@@ -11,7 +11,7 @@ def recognize_speech():
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("말씀해 주세요...")  # 디버깅: 마이크로폰 활성화됨
-        audio = r.listen(source)
+        audio = r.listen(source, timeout = 5, phrase_time_limit = 5)
         try:
             # 구글 음성 인식 사용
             text = r.recognize_google(audio, language="ko-KR")
