@@ -1,57 +1,180 @@
+# DBTI 🐾 내 성향에 맞는 강아지 찾기 & 반려견 성향 분석 카카오 챗봇
+[![카카오톡 채팅](https://img.shields.io/badge/DBTI-챗봇_사용해보기-FEE500?style=for-the-badge&logo=kakaotalk&logoColor=black)](http://pf.kakao.com/_ptxmyG/chat)  
+[![Python](https://img.shields.io/badge/Python-3.7%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-3.1.1-black?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![KakaoChatbot](https://img.shields.io/badge/Kakao%20i%20Open%20Builder-FFCD00?style=for-the-badge&logo=kakao&logoColor=black)](https://i.kakao.com/openbuilder)  
 
-# DBTI
+DBTI 프로젝트는 사용자의 MBTI 성향에 맞는 반려견을 추천하고, 성격검사를 통해 반려견의 성격 유형(DBTI)을 분석하여  
+반려자에게 양육에 대한 이해를 돕고 맞춤형 정보를 제공하는 파이썬 카카오 챗봇 서비스입니다.  
 
-<p align="center">
-  <br>
-  <img src="static/images/readme/dbti_main.png">
-  <br>
-</p>
+[//]: # (음성 인식을 통한 정보 검색 기능도 포함하고 있습니다. 챗봇과의 상호작용은 주로 한국어로 진행됩니다.)
 
-## 프로젝트 소개
-<h3 align="justify">
-내 성향에 맞는 강아지 찾기, 파이썬 카카오 챗봇 프로젝트
-</h3>
-<br>
+<img src="static/images/readme/dbti_main.png">
 
-## 프로젝트 목적
+## ✨ 주요 기능
 
-### 1. 이용자의 MBTI 성향에 맞는 견종 추천
-### 2. 반려견 성격 유형 검사를 통해 반려견를 이해하고 맟춤형 교육과 훈련을 제공
-### 3. STT를 사용하여 편리하고 접근성이 향상된 서비스를 제공
+- 👤 **MBTI 기반 견종 추천**: 사용자의 MBTI를 카카오톡 챗봇에 입력하면, 성향에 맞는 견종과 해당 견종의 특징을 알려줍니다.
 
+- 🐕 **DBTI 반려견 성향 검사**:
+    - 웹페이지에서 12가지 설문을 통해 반려견의 DBTI 유형을 분석합니다.
+    - 분석된 DBTI 결과는 카카오톡 챗봇을 통해 해당 DBTI에 대한 상세 설명과 함께 양육 솔루션이 제공됩니다.
 
+[//]: # (- 🗣️ **음성 인식&#40;STT&#41; 정보 검색 &#40;🚧 개발 중&#41;**:)
 
-<br>
+[//]: # (    - 웹페이지를 통해 음성으로 DBTI 또는 MBTI 관련 정보를 요청하고 결과를 받을 수 있도록 개발 중입니다.)
 
-## 기술 스택
+## 🏗️ 프로젝트 구조
 
-|                             Python                             |                               Flask                               |                         BeautifulSoup                          |                       Speech Recognition                       | CSV                                                             | Streamlit                                                      |
-|:--------------------------------------------------------------:|:-----------------------------------------------------------------:|:--------------------------------------------------------------:|:--------------------------------------------------------------:|-----------------------------------------------------------------|----------------------------------------------------------------|
-| <img src="static/images/readme/py.png" width="50" height="50"> | <img src="static/images/readme/flask.png" width="50" height="50"> | <img src="static/images/readme/bs.png" width="50" height="50"> | <img src="static/images/readme/sr.png" width="50" height="50"> | <img src="static/images/readme/csv.png" width="50" height="50"> | <img src="static/images/readme/sl.png" width="50" height="50"> |
+다음은 주요 파일 및 폴더 구조입니다.
 
-<br>
+```text
+DBTI/
+│
+├── app.py                      # 메인 Flask 애플리케이션
+├── test_app.py                 # 테스트 코드
+│
+├── static/
+│   ├── dbti/
+│   │   └── csv/dbti_types.csv  # DBTI 설명
+│   │
+│   └── mbti/
+│       ├── csv/
+│       │   ├── dog_match.csv   # 추천 견종 정보
+│       │   └── mbti_types.csv  # MBTI 설명
+│       │
+│       └── mbti_crawling.py    # 크롤링 스크립트
+│
+└── templates/
+    └── index.html              # DBTI 검사 웹 페이지
+```
 
-## 구현 기능
+## 🚀 설치 및 실행 방법
 
-### 1. 나와 맞는 강아지 찾기
-<p>#이용자의 MBTI를 챗봇에 입력하면, 이용자의 성향과 맞는 견종을 추천, MBTI 검사를 할 수 있게 링크 버튼 제공</p>
+- Python 3.8 이상 권장
 
-### 2. 반려동물 DBTI 검사하기
-<p>#DBTI를 검사한 후, 검사 완료 버튼을 누르면 DBTI 별칭과 성격 특징을 알려줌</p>
-
-### 3. 음성 인식 사용하기
-<p>#STT를 사용하여 MBTI와 DBTI를 인식 후 결과를 출력</p>
-
-<br>
-
-## 배운 점 & 아쉬운 점
-
-<h4 align="justify">
-1. 사용자별로 DBTI 검사 결과 저장 : DBTI 검사 결과를 반환할 때 1개 값만 반환해 검사를 진행한 사용자별로 결과를 제공하는데 어려움이 있음<br>
-2. 스킬서버 AWS로 변경 : 테스트 할때는 비용이 나가므로 Ngrok를 사용해서 스킬서버를 사용함. 실제 서비스에서는 AWS로 사용해야 한다.<br>
-3. 챗봇에 한정되는게 아닌 플랫폼 서비스로 확장 : 맞춤형 사료, 장난감, 악세서리 또는 팁을 제공하거나 커뮤니티 기능을 추가하는 등의 플랫폼 서비스로 확장할 수 있음
-</h4>
-
-<br>
+### 챗봇 사용해보기
+[![카카오톡 채팅](https://img.shields.io/badge/DBTI-챗봇_사용해보기-FEE500?style=for-the-badge&logo=kakaotalk&logoColor=black)](http://pf.kakao.com/_ptxmyG/chat)
 
 
+### pip 패키지
+
+프로젝트 실행에 필요한 패키지는 `requirements.txt` 파일에 있습니다.
+
+```text
+Flask~=3.1.1
+flask-cors~=6.0.0
+SpeechRecognition~=3.14.2
+pandas~=2.2.3
+requests~=2.32.3
+bs4~=0.0.2
+beautifulsoup4~=4.13.4
+pytest~=8.3.5
+```
+
+### 서버 실행
+
+1.  **저장소 클론 또는 다운로드**:
+    ```bash
+    git clone https://github.com/2jang/DBTI.git
+    cd DBTI
+    ```
+
+2. **필요한 패키지 설치**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+5.  **Flask 애플리케이션 실행**:
+    ```bash
+    python app.py
+    ```
+    `http://localhost:5000`에서 실행됩니다.
+
+## 🔄 API 엔드포인트
+
+-   **`GET /`**:
+    -   DBTI 검사를 위한 메인 웹페이지 (`index.html`)를 제공합니다.
+    
+
+-   **`POST /submit_dbti`**:
+    -   설명: `index.html`에서 사용자가 완료한 DBTI 결과를 받아 서버에 저장합니다.
+    -   요청 (JSON):
+        ```json
+        {"dbti": "결과DBTI유형"}
+    -   응답 (JSON):
+        ```json
+        {"message": "DBTI 저장 완료"}
+
+-   **`POST /kakao_api`**: (카카오 챗봇 스킬용)
+    -   `/submit_dbti`를 통해 저장된 DBTI 결과를 카카오톡 스킬 서버로 반환합니다
+    
+
+-   **`POST /mbti_api`**: (카카오 챗봇 스킬용)
+    -   사용자가 입력한 MBTI에 대한 추천 견종 정보를 카카오톡 스킬 서버로 반환합니다.
+    
+
+-   스킬 서버의 JSON 요청 형식은 [Kakao API DOCS](https://kakaobusiness.gitbook.io/main/tool/chatbot/skill_guide/make_skill#adding_logic)를 확인해주세요!
+
+[//]: # (-   **`GET /stt`**: &#40;🚧 개발 중&#41;)
+
+[//]: # (    -   설명: 음성 인식&#40;STT&#41; 테스트를 위한 웹페이지 &#40;`index2.html`&#41;를 제공합니다. 현재 해당 페이지와 백엔드 기능은 개발 중입니다.)
+
+[//]: # (    -   응답: HTML 페이지.)
+
+[//]: # ()
+[//]: # (-   **`POST /api/speech`**: &#40;🚧 개발 중&#41;)
+
+[//]: # (    -   설명: 서버의 마이크를 통해 음성을 입력받아 텍스트로 변환하고, 해당 텍스트에서 DBTI/MBTI 유형을 검색하여 결과를 반환합니다. &#40;`voice_assistant.py`의 기능을 사용&#41;. 이 기능은 현재 개발 중입니다.)
+
+## 🧩 사용된 기술
+
+-   **언어**: Python
+-   **웹 프레임워크**: Flask
+-   **웹 크롤링**: `BeautifulSoup4` 
+-   **데이터 처리**: Pandas
+-   **챗봇 플랫폼**: Kakao i Open Builder
+-   **테스팅**: `pytest`
+
+[//]: # (-   **음성 인식 &#40;STT&#41;**: `SpeechRecognition`)
+
+## 🌟 특징
+
+-   **비동기 처리**: 웹사이트와 서버 간 비동기로 통신합니다
+-   **정보 시각화**: 카카오톡 기본 카드 및 텍스트 응답을 활용하여 정보를 효과적으로 전달합니다.
+-   **데이터 기반 추천**: 정형화된 CSV 데이터를 기반으로 사용자 맞춤형 정보를 제공합니다.
+
+[//]: # (-   **&#40;🚧 개발 중&#41; 음성 인터페이스**: STT 기능을 통해 사용자 편의성 증대 목표.)
+
+## 🔧 문제해결 팁
+
+-   **Flask 서버 실행 오류**: Python 버전 및 `requirements.txt`에 명시된 패키지들이 모두 올바르게 설치되었는지 확인합니다.
+-   **카카오 챗봇 연동 문제**:
+    -   서버 실행 여부 및 생성된 URL이 카카오 i 오픈빌더에 정확히 입력되었는지 확인합니다.
+    -   Flask 서버의 API 엔드포인트가 정상적으로 응답하는지 카카오 봇 스킬 편집 화면에서 테스트합니다.
+
+[//]: # (-   **음성 인식&#40;STT&#41; 안됨 &#40;🚧 개발 중 기능&#41;**:)
+
+[//]: # (    -   &#40;서버 측 마이크 사용 시&#41; 서버에 마이크가 연결되어 있고, 운영체제에서 마이크 접근 권한이 허용되었는지 확인합니다.)
+
+[//]: # (    -   `SpeechRecognition` 라이브러리가 Google API에 접근하기 위해 인터넷 연결이 필요합니다.)
+
+## 🤝 기여하기
+
+버그 리포트, 기능 제안, 코드 개선 등 모든 종류의 기여를 환영합니다!
+1.  이 저장소를 Fork합니다.
+2.  새로운 기능 브랜치를 생성합니다. (`git checkout -b feature/AmazingFeature`)
+3.  변경 사항을 커밋합니다. (`git commit -m 'Add some AmazingFeature'`)
+4.  브랜치에 푸시합니다. (`git push origin feature/AmazingFeature`)
+5.  Pull Request를 생성합니다.
+
+## 📝 라이센스
+
+이 프로젝트는 [MIT 라이센스](LICENSE) 하에 배포됩니다.
+
+## 🙏 감사의 말
+
+-   MBTI 성격 유형 정보 제공: [16Personalities](https://www.16personalities.com)
+-   DBTI 관련 아이디어 및 데이터 참고: [포동](https://www.fordong.co.kr/)
+-   프로젝트에 열심히 임해준 아이식스조 모두 수고했어요!
+
+⭐ 이 프로젝트가 마음에 드셨다면 Star를 눌러주세요! ⭐
