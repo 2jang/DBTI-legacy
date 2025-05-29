@@ -1,5 +1,5 @@
 # DBTI 🐾 내 성향에 맞는 강아지 찾기 & 반려견 성향 분석 카카오 챗봇
-[![카카오톡 채팅](https://img.shields.io/badge/DBTI-챗봇_사용해보기-FEE500?style=for-the-badge&logo=kakaotalk&logoColor=black)](http://pf.kakao.com/_ptxmyG/chat)  
+[![카카오톡 채팅](https://img.shields.io/badge/DBTI-챗봇_사용해보기-FEE500?style=for-the-badge&logo=kakaotalk&logoColor=white)](http://pf.kakao.com/_ptxmyG/chat)  
 [![Python](https://img.shields.io/badge/Python-3.7%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/Flask-3.1.1-black?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
 [![KakaoChatbot](https://img.shields.io/badge/Kakao%20i%20Open%20Builder-FFCD00?style=for-the-badge&logo=kakao&logoColor=black)](https://i.kakao.com/openbuilder)  
@@ -57,7 +57,7 @@ DBTI/
 - Python 3.8 이상 권장
 
 ### 챗봇 사용해보기
-[![카카오톡 채팅](https://img.shields.io/badge/DBTI-챗봇_사용해보기-FEE500?style=for-the-badge&logo=kakaotalk&logoColor=black)](http://pf.kakao.com/_ptxmyG/chat)
+[![카카오톡 채팅](https://img.shields.io/badge/DBTI-챗봇_사용해보기-FEE500?style=for-the-badge&logo=kakaotalk&logoColor=white)](http://pf.kakao.com/_ptxmyG/chat)
 
 
 ### pip 패키지
