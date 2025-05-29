@@ -3,173 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>음성 인식 MBTI/DBTI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>음성 녹음 및 인식</title>
     <style>
         body {
-            font-family: 'Noto Sans KR', sans-serif;
-            background-color: #f0f4f8;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
+            font-family: Arial, sans-serif;
             padding: 20px;
-            box-sizing: border-box;
+            max-width: 600px;
+            margin: auto;
         }
-        .container {
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            padding: 30px;
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-        }
+
         h1 {
-            color: #2c3e50;
-            margin-bottom: 20px;
+            color: #333;
         }
-        #speechButton {
-            background-color: #3498db;
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
             color: white;
             border: none;
-            padding: 12px 24px;
-            border-radius: 25px;
-            font-size: 18px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 20px;
         }
-        #speechButton:hover {
-            background-color: #2980b9;
-            transform: scale(1.05);
+
+        button:hover {
+            background-color: #45a049;
         }
-        #speechButton.red {
-            background-color: #e74c3c;
-        }
-        #speechButton.green {
-            background-color: #2ecc71;
-        }
-        #MBTIoutput {
-            background-color: #ecf0f1;
-            border-radius: 10px;
-            padding: 20px;
+
+        #result {
             margin-top: 20px;
-        }
-        #recognizedText {
-            font-weight: bold;
-            color: #34495e;
-            font-size: 1.1em;
-            margin-bottom: 15px;
-        }
-        #Dog, #Personality, #Type, #Description, #Solution, #Site {
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 8px;
-            transition: background-color 0.3s ease;
-        }
-        #Dog, #Personality {
-            background-color: #e6f2ff;
-            color: #2980b9;
-        }
-        #Type, #Description, #Solution, #Site {
-            background-color: #f0fff0;
-            color: #27ae60;
-        }
-        #Image {
-            max-width: 300px;
-            border-radius: 10px;
-            margin-top: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        p {
-            margin: 10px 0;
-            color: #2c3e50;
-            line-height: 1.6;
+            font-size: 1.2em;
+            color: #444;
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <h1>음성 인식 MBTI/DBTI 견종 추천</h1>
-    <button id="speechButton">🎙️ 음성 인식 시작</button>
-
-    <div id="MBTIoutput">
-        <p id="recognizedText"></p>
-
-        <p id="Dog"></p>
-        <p id="Personality"></p>
-
-        <p id="Type Name"></p>
-        <p id="Description"></p>
-        <p id="Solution"></p>
-        <p id="Site URL"></p>
-
-        <img id="Image" src="" alt="">
-    </div>
-</div>
+<h1>음성 녹음 및 인식</h1>
+<button id="startBtn">🎤 음성 녹음 시작</button>
+<button id="stopBtn" disabled>🛑 음성 녹음 종료</button>
+<div id="result"></div>
 
 <script>
-    function reset() {
-        document.getElementById("Dog").style.display = "none";
-        document.getElementById("Personality").style.display = "none";
-        document.getElementById("Type Name").style.display = "none";
-        document.getElementById("Description").style.display = "none";
-        document.getElementById("Solution").style.display = "none";
-        document.getElementById("Image").style.display = "none";
-    }
-    function MBTIshow() {
-        document.getElementById("Dog").style.display = "block";
-        document.getElementById("Personality").style.display = "block";
-        document.getElementById("Image").style.display = "block";
-    }
-    function DBTIshow() {
-        document.getElementById("Type Name").style.display = "block";
-        document.getElementById("Description").style.display = "block";
-        document.getElementById("Solution").style.display = "block";
-        document.getElementById("Image").style.display = "block";
-    }
+    let recorder;
+    let audioData = [];
 
-    document.getElementById("speechButton").addEventListener("click", function() {
-        let button = document.getElementById("speechButton");
-        button.classList.add("red");
-        button.classList.remove("green");
-        reset();
-        document.getElementById("recognizedText").innerText = "음성 인식 중...";
+    // 버튼 요소들
+    const startBtn = document.getElementById('startBtn');
+    const stopBtn = document.getElementById('stopBtn');
+    const resultDiv = document.getElementById('result');
 
-        fetch('/api/speech', { method: 'POST' })
-            .then(response => {
-                console.log("서버 응답 받음:", response);
-                return response.json();
+    // 음성 녹음 시작
+    startBtn.addEventListener('click', async () => {
+        audioData = [];
+        startBtn.disabled = true;
+        stopBtn.disabled = false;
+        resultDiv.innerText = "음성 녹음 중...";
+
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        recorder = new MediaRecorder(stream);
+
+        recorder.ondataavailable = (event) => {
+            audioData.push(event.data);
+        };
+
+        recorder.onstop = () => {
+            const audioBlob = new Blob(audioData, { type: 'audio/wav' });
+            const formData = new FormData();
+            formData.append('audio', audioBlob, 'audio.wav');
+
+            // 서버로 오디오 파일 전송
+            fetch('/recognize', {
+                method: 'POST',
+                body: formData
             })
-            .then(data => {
-                console.log("서버로부터 받은 데이터:", data);
-                button.classList.add("green");
-                button.classList.remove("red");
-                if (data.result.MBTI) {
-                    MBTIshow();
-                    document.getElementById("recognizedText").innerText = `인식된 MBTI: ${data.result.MBTI}`;
-                    document.getElementById("Dog").innerText = `추천 견종: ${data.result.Dog}`;
-                    document.getElementById("Personality").innerText = `성격: ${data.result.Personality}`;
-                    document.getElementById("Image").src = `${data.result["Img URL"]}`;
-                }else if (data.result.DBTI) {
-                    DBTIshow();
-                    document.getElementById("recognizedText").innerText = `인식된 DBTI: ${data.result.DBTI}`;
-                    document.getElementById("Type Name").innerText = `별명: ${data.result["Type Name"]}`;
-                    document.getElementById("Description").innerText = `설명: ${data.result.Description}`;
-                    document.getElementById("Solution").innerText = `키우는 방법: ${data.result.Solution}`;
-                    document.getElementById("Image").src = `${data.result["Img URL"]}`;
-                }else {
-                    document.getElementById("recognizedText").innerText = `인식된 텍스트: ${data.result}`;
-                }
-            })
-            .catch(error => {
-                console.error("음성 인식 오류:", error);
-                document.getElementById("recognizedText").innerText = "음성 인식 오류";
-                button.classList.add("green");
-                button.classList.remove("red");
-            });
+                .then(response => response.json())
+                .then(data => {
+                    if (data.recognized_text) {
+                        resultDiv.innerText = `인식된 텍스트: ${data.recognized_text}`;
+                    } else {
+                        resultDiv.innerText = '음성을 인식하지 못했습니다.';
+                    }
+                })
+                .catch(error => {
+                    console.error('에러 발생:', error);
+                    resultDiv.innerText = '요청 처리 중 오류가 발생했습니다.';
+                });
+        };
+
+        recorder.start();
+    });
+
+    // 음성 녹음 종료
+    stopBtn.addEventListener('click', () => {
+        stopBtn.disabled = true;
+        recorder.stop();
+        startBtn.disabled = false;
+        resultDiv.innerText = "음성 녹음이 종료되었습니다.";
     });
 </script>
 </body>
