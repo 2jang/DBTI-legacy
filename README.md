@@ -1,5 +1,6 @@
 # DBTI 🐾 MBTI와 맞는 강아지 찾기 & 반려견 성향 분석 챗봇
-[![카카오톡 채팅](https://img.shields.io/badge/DBTI-챗봇_사용해보기-FEE500?style=for-the-badge&logo=kakaotalk&logoColor=white)](http://pf.kakao.com/_ptxmyG/chat)  
+[![카카오톡 채팅](https://img.shields.io/badge/DBTI-챗봇_사용해보기-FEE500?style=for-the-badge&logo=kakaotalk&logoColor=white)](http://pf.kakao.com/_ptxmyG/chat)
+[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m798155050-72fc3b7ee90b6ff005c10517?up_message=%20%EC%84%9C%EB%B2%84%20%EC%8B%A4%ED%96%89%EC%A4%91!&down_message=%EC%84%9C%EB%B2%84+%EC%98%A4%ED%94%84%EB%9D%BC%EC%9D%B8&style=for-the-badge)](https://dbti.2jang.me:5000)  
 [![Python](https://img.shields.io/badge/Python-3.7%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/Flask-3.1.1-black?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
 [![KakaoChatbot](https://img.shields.io/badge/Kakao%20i%20Open%20Builder-FFCD00?style=for-the-badge&logo=kakao&logoColor=black)](https://i.kakao.com/openbuilder)  
@@ -147,12 +148,6 @@ pytest~=8.3.5
 
 [//]: # (-   **&#40;🚧 개발 중&#41; 음성 인터페이스**: STT 기능을 통해 사용자 편의성 증대 목표.)
 
-## 🔧 문제해결 팁
-
--   **Flask 서버 실행 오류**: Python 버전 및 `requirements.txt`에 명시된 패키지들이 모두 올바르게 설치되었는지 확인합니다.
--   **카카오 챗봇 연동 문제**:
-    -   서버 실행 여부 및 생성된 URL이 카카오 i 오픈빌더에 정확히 입력되었는지 확인합니다.
-    -   Flask 서버의 API 엔드포인트가 정상적으로 응답하는지 카카오 봇 스킬 편집 화면에서 테스트합니다.
 
 [//]: # (-   **음성 인식&#40;STT&#41; 안됨 &#40;🚧 개발 중 기능&#41;**:)
 
