@@ -3,7 +3,6 @@
 [![Uptime Robot status](https://img.shields.io/uptimerobot/status/m798155050-72fc3b7ee90b6ff005c10517?up_message=%20%EC%84%9C%EB%B2%84%20%EC%8B%A4%ED%96%89%EC%A4%91!&down_message=%EC%84%9C%EB%B2%84+%EC%98%A4%ED%94%84%EB%9D%BC%EC%9D%B8&style=for-the-badge)](https://dbti.2jang.me:5000)  
 [![Python](https://img.shields.io/badge/Python-3.7%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/Flask-3.1.1-black?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
-[![KakaoChatbot](https://img.shields.io/badge/Kakao%20i%20Open%20Builder-FFCD00?style=for-the-badge&logo=kakao&logoColor=black)](https://i.kakao.com/openbuilder)  
 
 DBTI 프로젝트는 사용자의 MBTI 성향에 맞는 반려견을 추천하고, 성격검사를 통해 반려견의 성격 유형(DBTI)을 분석하여  
 반려자에게 양육에 대한 이해를 돕고 맞춤형 정보를 제공하는 파이썬 카카오 챗봇 서비스입니다.  
