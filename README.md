@@ -1,6 +1,6 @@
 # DBTI 🐾 MBTI와 맞는 강아지 찾기 & 반려견 성향 분석 챗봇
 [![카카오톡 채팅](https://img.shields.io/badge/DBTI-챗봇_사용해보기-FEE500?style=for-the-badge&logo=kakaotalk&logoColor=white)](http://pf.kakao.com/_ptxmyG/chat)
-[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m798155050-72fc3b7ee90b6ff005c10517?up_message=Online&down_message=Offline&style=for-the-badge&logo=uptimerobot&logoColor=white&label=status&labelColor=065f46&color=10b981)](https://dbti.2jang.me)  
+[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m798155050-72fc3b7ee90b6ff005c10517?up_message=Online&down_message=Offline&style=for-the-badge&logo=uptimerobot&logoColor=white&label=status&labelColor=065f46&color=10b981)](https://dbti.2jang.dev)  
 [![Python](https://img.shields.io/badge/Python-3.7%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/Flask-3.1.1-black?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
 
