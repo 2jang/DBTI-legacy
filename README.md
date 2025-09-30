@@ -171,6 +171,5 @@ pytest~=8.3.5
 
 -   MBTI 성격 유형 정보 제공: [16Personalities](https://www.16personalities.com)
 -   DBTI 관련 아이디어 및 데이터 참고: [포동](https://www.fordong.co.kr/)
--   프로젝트에 열심히 임해준 아이식스조 모두 수고했어요!
 
 ⭐ 이 프로젝트가 마음에 드셨다면 Star를 눌러주세요! ⭐
