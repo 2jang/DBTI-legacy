@@ -1,10 +1,10 @@
-# DBTI 🐾 MBTI와 맞는 강아지 찾기 & 반려견 성향 분석 챗봇
+# DBTI 🐾 MBTI와 맞는 강아지 찾기 & 반려견 성향 분석 서비스
 [![status](https://img.shields.io/endpoint?url=https%3A%2F%2Fstatus.2jang.dev%2Fapi%2Fbadges%3Fid%3Ddbti%26label%3Dstatus%26up%3DOnline%26down%3DOffline%26colorUp%3D10b981%26colorDown%3Ddf484a&style=for-the-badge&logo=cloudflare&logoColor=white&labelColor=065f46)](https://status.2jang.dev)
 [![Python](https://img.shields.io/badge/Python-3.7%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/Flask-3.1.1-black?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
 
 DBTI 프로젝트는 사용자의 MBTI 성향에 맞는 반려견을 추천하고, 성격검사를 통해 반려견의 성격 유형(DBTI)을 분석하여  
-반려자에게 양육에 대한 이해를 돕고 맞춤형 정보를 제공하는 파이썬 카카오 챗봇 서비스입니다.  
+반려자에게 양육에 대한 이해를 돕고 맞춤형 정보를 제공하는 서비스입니다.  
 
 <p align="center">
   <br>
@@ -15,11 +15,11 @@ DBTI 프로젝트는 사용자의 MBTI 성향에 맞는 반려견을 추천하�
 ## ✨ 주요 기능
 
 - 👤 **MBTI 기반 견종 추천**:  
-    - 사용자의 MBTI를 카카오톡 챗봇에 입력하면, 성향에 맞는 견종과 해당 견종의 특징을 알려줍니다.
+    - 사용자의 MBTI를 입력하면, 성향에 맞는 견종과 해당 견종의 특징을 알려줍니다.
 
 - 🐕 **DBTI 반려견 성향 검사**:
     - 웹페이지에서 12가지 설문을 통해 반려견의 DBTI 유형을 분석합니다.
-    - 분석된 DBTI 결과는 카카오톡 챗봇을 통해 해당 DBTI에 대한 상세 설명과 함께 양육 솔루션이 제공됩니다.
+    - 분석된 DBTI 결과는 해당 DBTI에 대한 상세 설명과 함께 양육 솔루션이 제공됩니다.
 
 ## 🏗️ 프로젝트 구조
 
@@ -47,10 +47,6 @@ DBTI/
 ## 🚀 설치 및 실행 방법
 
 - Python 3.8 이상 권장
-
-### 챗봇 사용해보기
-[![카카오톡 채팅](https://img.shields.io/badge/DBTI-챗봇_사용해보기-FEE500?style=for-the-badge&logo=kakaotalk&logoColor=white)](http://pf.kakao.com/_ptxmyG/chat)
-
 
 ### pip 패키지
 
@@ -100,17 +96,7 @@ pytest~=8.3.5
     -   응답 (JSON):
         ```json
         {"message": "DBTI 저장 완료"}
-
--   **`POST /kakao_api`**: (카카오 챗봇 스킬용)
-    -   `/submit_dbti`를 통해 저장된 DBTI 결과를 카카오톡 스킬 서버로 반환합니다
     
-
--   **`POST /mbti_api`**: (카카오 챗봇 스킬용)
-    -   사용자가 입력한 MBTI에 대한 추천 견종 정보를 카카오톡 스킬 서버로 반환합니다.
-    
-
--   스킬 서버의 JSON 요청 형식은 [Kakao API DOCS](https://kakaobusiness.gitbook.io/main/tool/chatbot/skill_guide/make_skill#adding_logic)를 확인해주세요!
-
 
 ## 🧩 사용된 기술
 
@@ -118,10 +104,7 @@ pytest~=8.3.5
 -   **웹 프레임워크**: Flask
 -   **웹 크롤링**: `BeautifulSoup4` 
 -   **데이터 처리**: Pandas
--   **챗봇 플랫폼**: Kakao i Open Builder
 -   **테스팅**: `pytest`
-
-[//]: # (-   **음성 인식 &#40;STT&#41;**: `SpeechRecognition`)
 
 ## 🌟 특징
 
