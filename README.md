@@ -1,4 +1,5 @@
 # DBTI 🐾 MBTI와 맞는 강아지 찾기 & 반려견 성향 분석 챗봇
+[![카카오톡 채팅](https://img.shields.io/badge/DBTI-챗봇_사용해보기-FEE500?style=for-the-badge&logo=kakaotalk&logoColor=white)](http://pf.kakao.com/_ptxmyG/chat)
 [![status](https://img.shields.io/endpoint?url=https%3A%2F%2Fstatus.2jang.dev%2Fapi%2Fbadges%3Fid%3Ddbti%26label%3Dstatus%26up%3DOnline%26down%3DOffline%26colorUp%3D10b981%26colorDown%3Ddf484a&style=for-the-badge&logo=cloudflare&logoColor=white&labelColor=065f46)](https://status.2jang.dev)  
 [![Python](https://img.shields.io/badge/Python-3.7%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/Flask-3.1.1-black?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
