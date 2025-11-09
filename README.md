@@ -1,4 +1,4 @@
-# ⚠️ 이 프로젝트는 더 이상 유지되지 않습니다. <br><br>[DBTI v2 → ](https://github.com/2jang/DBTI)https://github.com/2jang/DBTI
+# ⚠️ 이 프로젝트는 더 이상 유지되지 않습니다. <br><br>[DBTI v2(Pawsonality) → ](https://github.com/2jang/Pawsonality)https://github.com/2jang/Pawsonality
 <br><br><br><br><br>
 # DBTI 🐾 MBTI와 맞는 강아지 찾기 & 반려견 성향 분석 챗봇
 [![카카오톡 채팅](https://img.shields.io/badge/DBTI-챗봇_사용해보기-FEE500?style=for-the-badge&logo=kakaotalk&logoColor=white)](http://pf.kakao.com/_ptxmyG/chat)
