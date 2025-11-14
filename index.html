@@ -419,37 +419,9 @@
         mbti += document.getElementById('JP').value < 2 ? 'P' : 'J';
 
         let dbti = convertMBTItoDBTI(mbti);
-        /* 추가한것 : dbti 정보를 app.py로 넘겨주는거 */
-        fetch('/submit_dbti', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({dbti: dbti}),
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Success:', data);
-                document.getElementById('result-mbti').textContent = dbti;
-                document.getElementById('result-description').textContent = `당신의 강아지는 ${dbti} 성향을 가지고 있습니다.`;
-                modal.style.display = 'block';
-
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                alert(error);
-                alert('결과를 제출하는 중 오류가 발생했습니다. 다시 시도해 주세요.');
-
-                //서버 통신 오류가 나도 결과는 띄워줌
-                document.getElementById('result-mbti').textContent = dbti;
-                document.getElementById('result-description').textContent = `당신의 강아지는 ${dbti} 성향을 가지고 있습니다.`;
-                modal.style.display = 'block';
-            });
+        document.getElementById('result-mbti').textContent = dbti;
+        document.getElementById('result-description').textContent = `당신의 강아지는 ${dbti} 성향을 가지고 있습니다.`;
+        modal.style.display = 'block';
     }
 
     /* 추가한것 : mbti처럼 검사를 했는데 이를 DBTI로 변환해주는거 */
